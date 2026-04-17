@@ -1,0 +1,12 @@
+{
+  "name": "k9solutions",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build:css": "npx tailwindcss -i ./src/assets/css/input.css -o ./dist/assets/css/tailwind.css --minify",
+    "watch:css": "npx tailwindcss -i ./src/assets/css/input.css -o ./dist/assets/css/tailwind.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.7"
+  }
+}

@@ -9,7 +9,7 @@ A professional, fully responsive website for a pet training and boarding company
 ✅ **Modern UI** - Built with Tailwind CSS for a professional look
 ✅ **Smooth Interactions** - JavaScript-powered smooth scrolling and animations
 ✅ **Accessibility** - Semantic HTML5 structure
-✅ **Fast Loading** - Uses Tailwind CDN for instant styling
+✅ **Fast Loading** - Uses a locally built Tailwind CSS file for production
 
 ## File Structure
 
@@ -22,9 +22,8 @@ k9solutions/
 
 ## Quick Start
 
-1. **Open in Browser**: Simply open `index.html` in any modern web browser
-   - No build tools or server required
-   - Works offline (except for CDN resources)
+1. **Open in Browser**: For development open `index.html` in a modern browser.
+   - To build production CSS, run the Tailwind build steps below and serve the `assets/` folder from your web server.
 
 2. **Customize Content**:
    - Edit contact information in the footer (address, phone, email)
@@ -67,9 +66,35 @@ k9solutions/
 ## Technologies Used
 
 - **HTML5**: Semantic markup and modern HTML structure
-- **Tailwind CSS**: Utility-first CSS framework (via CDN)
+- **Tailwind CSS**: Utility-first CSS framework (locally built for production)
 - **Font Awesome**: Icons for UI elements (via CDN)
 - **Vanilla JavaScript**: Pure JavaScript for all interactivity
+
+## Building Tailwind CSS (recommended for production)
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Build the compiled CSS to `assets/css/tailwind.css`:
+
+```bash
+npm run build:css
+```
+
+3. During development you can watch for changes:
+
+```bash
+npm run watch:css
+```
+
+Include the single compiled file in your HTML:
+
+```html
+<link rel="stylesheet" href="assets/css/tailwind.css">
+```
 
 ## Browser Compatibility
 
