@@ -6,7 +6,8 @@ const dirsToCreate = [
   'dist',
   'dist/assets',
   'dist/assets/js',
-  'dist/assets/images'
+  'dist/assets/images',
+  'dist/assets/videos'
 ];
 
 dirsToCreate.forEach(dir => {
@@ -47,6 +48,17 @@ if (fs.existsSync(imagesDir)) {
     const dest = path.join('dist', 'assets', 'images', file);
     fs.copyFileSync(src, dest);
     console.log(`Copied image: ${file}`);
+  });
+}
+
+// Copy videos from src/assets/videos to dist/assets/videos
+const videosDir = path.join('src', 'assets', 'videos');
+if (fs.existsSync(videosDir)) {
+  fs.readdirSync(videosDir).forEach(file => {
+    const src = path.join(videosDir, file);
+    const dest = path.join('dist', 'assets', 'videos', file);
+    fs.copyFileSync(src, dest);
+    console.log(`Copied video: ${file}`);
   });
 }
 
