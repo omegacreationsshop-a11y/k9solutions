@@ -66,4 +66,8 @@ if (fs.existsSync(componentsDir)) {
   });
 }
 
+// Create .nojekyll file for GitHub Pages
+fs.writeFileSync(path.join('dist', '.nojekyll'), '');
+console.log('Created .nojekyll file');
+
 console.log('Build complete!');
