@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Required Vaccinations - K9 Solutions</title>
+    <link rel="icon" type="image/png" href="assets/images/k9logo.png">
+    <link rel="stylesheet" href="assets/css/tailwind.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="flex flex-col min-h-screen bg-[#FAFAF7]">
+    <!-- Header Component -->
+    <div id="header-component"></div>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-r from-[#D2B48C] via-[#B8966A] to-[#C0392B] text-[#FAFAF7] py-16 md:py-28">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">Required Vaccinations</h1>
+                <p class="text-lg md:text-xl opacity-90">Essential vaccines for your dog's boarding stay at K9 Solutions Center</p>
+            </div>
+        </section>
+
+        <!-- Content Section -->
+        <section class="py-16 md:py-24 bg-[#FAFAF7]">
+            <div class="container mx-auto px-4">
+                <!-- Introduction -->
+                <div class="max-w-3xl mx-auto mb-12">
+                    <div class="bg-blue-50 border-l-4 border-[#C0392B] p-6 rounded">
+                        <p class="text-[#2C2C2C] text-lg mb-4">
+                            <strong>Proof of current vaccinations is required for ALL PETS that board at K9 Solutions Center.</strong>
+                        </p>
+                        <ul class="space-y-2 text-[#2C2C2C]">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-[#C0392B] mt-1 flex-shrink-0"></i>
+                                <span>All vaccines must be administered at least 48 hours prior to check-in</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-[#C0392B] mt-1 flex-shrink-0"></i>
+                                <span>All vaccines must be administered by a licensed veterinarian</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-[#C0392B] mt-1 flex-shrink-0"></i>
+                                <span>Written proof from your veterinarian is required at check-in</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Vaccination Table -->
+                <div class="max-w-4xl mx-auto">
+                    <div class="flex items-center justify-between mb-8">
+                        <h2 class="text-3xl font-bold text-[#0F0F10]">Vaccination Schedule</h2>
+                        <button onclick="window.print()" class="flex items-center gap-2 bg-[#D2B48C] text-[#0F0F10] px-6 py-2 rounded-lg font-bold hover:bg-[#B8966A] transition">
+                            <i class="fas fa-print"></i>
+                            Print
+                        </button>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow overflow-hidden border border-[#E6E6E6]">
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="bg-[#D2B48C]">
+                                        <th class="px-6 py-4 text-left text-[#0F0F10] font-bold">Vaccine</th>
+                                        <th class="px-6 py-4 text-left text-[#0F0F10] font-bold">Frequency</th>
+                                        <th class="px-6 py-4 text-left text-[#0F0F10] font-bold">Other Name(s)</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-[#E6E6E6]">
+                                    <tr class="hover:bg-[#F9F9F9] transition">
+                                        <td class="px-6 py-4 text-[#0F0F10] font-semibold">Rabies</td>
+                                        <td class="px-6 py-4 text-[#2C2C2C]">Every 1-3 years depending on vaccine given</td>
+                                        <td class="px-6 py-4 text-[#2C2C2C]">Required by state</td>
+                                    </tr>
+                                    <tr class="hover:bg-[#F9F9F9] transition">
+                                        <td class="px-6 py-4 text-[#0F0F10] font-semibold">Distemper</td>
+                                        <td class="px-6 py-4 text-[#2C2C2C]">Every 1-2 years depending on vet</td>
+                                        <td class="px-6 py-4 text-[#2C2C2C]">Part of DHLPP/DALPP</td>
+                                    </tr>
+                                    <tr class="hover:bg-[#F9F9F9] transition">
+                                        <td class="px-6 py-4 text-[#0F0F10] font-semibold">Hepatitis</td>
+                                        <td class="px-6 py-4 text-[#2C2C2C]">Every 1-2 years depending on vet</td>
+                                        <td class="px-6 py-4 text-[#2C2C2C]">Part of DHLPP/DALPP</td>
+                                    </tr>
+                                    <tr class="hover:bg-[#F9F9F9] transition">
+                                        <td class="px-6 py-4 text-[#0F0F10] font-semibold">Leptospirosis</td>
+                                        <td class="px-6 py-4 text-[#2C2C2C]">Every year</td>
+                                        <td class="px-6 py-4 text-[#2C2C2C]">Part of DHLPP; Leptospira</td>
+                                    </tr>
+                                    <tr class="hover:bg-[#F9F9F9] transition">
+                                        <td class="px-6 py-4 text-[#0F0F10] font-semibold">Parainfluenza</td>
+                                        <td class="px-6 py-4 text-[#2C2C2C]">Every 1-2 years depending on vet</td>
+                                        <td class="px-6 py-4 text-[#2C2C2C]">Part of DHLPP/DALPP</td>
+                                    </tr>
+                                    <tr class="hover:bg-[#F9F9F9] transition">
+                                        <td class="px-6 py-4 text-[#0F0F10] font-semibold">Parvovirus</td>
+                                        <td class="px-6 py-4 text-[#2C2C2C]">Every 1-2 years depending on vet</td>
+                                        <td class="px-6 py-4 text-[#2C2C2C]">Part of DHLPP/DALPP</td>
+                                    </tr>
+                                    <tr class="hover:bg-[#F9F9F9] transition">
+                                        <td class="px-6 py-4 text-[#0F0F10] font-semibold">Bordetella</td>
+                                        <td class="px-6 py-4 text-[#2C2C2C]">Every 6 months - 1 year depending on vet</td>
+                                        <td class="px-6 py-4 text-[#2C2C2C]">Kennel cough</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Important Notes -->
+                <div class="max-w-3xl mx-auto mt-12">
+                    <div class="bg-[#FFF3CD] border border-[#FFE69C] p-6 rounded-lg">
+                        <div class="flex items-start gap-3 mb-4">
+                            <i class="fas fa-exclamation-triangle text-[#856404] text-xl mt-1 flex-shrink-0"></i>
+                            <div>
+                                <h3 class="font-bold text-[#856404] mb-2">Important Note</h3>
+                                <p class="text-[#856404]">
+                                    Due to concerns for human and animal safety, we are unable to make exceptions to vaccination requirements. Please ensure your pet's vaccinations are current and that you bring written proof from your veterinarian at check-in.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="max-w-3xl mx-auto mt-12 text-center">
+                    <p class="text-[#2C2C2C] text-lg mb-6">Have questions about your pet's vaccination schedule?</p>
+                    <a href="contact.html" class="bg-[#C0392B] text-white px-8 py-3 rounded-lg font-bold hover:bg-[#922B21] transition inline-block">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component -->
+    <div id="footer-component"></div>
+
+    <!-- Scripts -->
+    <script src="assets/js/components.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script>
+        // Load components immediately (DOM is ready at this point)
+        loadComponents();
+    </script>
+</body>
+</html>
