@@ -21,36 +21,46 @@
         <section class="py-16 md:py-24 bg-[#FAFAF7]">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl md:text-4xl font-bold text-[#0F0F10] mb-12 text-center">Our Training Policies</h2>
-                <div class="bg-[#D2B48C] p-8 rounded-lg shadow border-[#E6E6E6] border">
-                    <h3 class="text-2xl font-bold text-[#0F0F10] mb-6">Scheduling & Important Policies</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div>
-                            <h4 class="text-lg font-bold text-[#C0392B] mb-3">How to Schedule</h4>
-                            <p class="text-[#2C2C2C]">Contact us by phone to discuss your training needs. Payment must be made before your dog is placed on our training schedule. We accept payment over the phone for your convenience.</p>
-                        </div>
-                        <div>
-                            <h4 class="text-lg font-bold text-[#C0392B] mb-3">Cancellation Policy</h4>
-                            <p class="text-[#2C2C2C]">We require a 48-hour cancellation notice for all scheduled sessions and board and train programs. Cancellations made within 48 hours may result in charges. Please contact us as soon as possible if you need to reschedule.</p>
-                        </div>
-                        <div>
-                            <h4 class="text-lg font-bold text-[#C0392B] mb-3">Board & Train Terms</h4>
-                            <p class="text-[#2C2C2C]">All board and train programs require a signed contract. A deposit (typically 50% of the total cost) is required to reserve your dog's spot. No refunds on payments, but credits toward future services may be available.</p>
+                <details class="bg-[#D2B48C] rounded-lg shadow border-[#E6E6E6] border group">
+                    <summary class="flex items-center justify-between p-8 cursor-pointer list-none">
+                        <h3 class="text-2xl font-bold text-[#0F0F10]">Scheduling & Important Policies</h3>
+                        <i class="fas fa-chevron-down text-[#0F0F10] transition-transform duration-300 group-open:rotate-180"></i>
+                    </summary>
+                    <div class="px-8 pb-8">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div>
+                                <h4 class="text-lg font-bold text-[#C0392B] mb-3">How to Schedule</h4>
+                                <p class="text-[#2C2C2C]">Contact us by phone to discuss your training needs. Payment must be made before your dog is placed on our training schedule. We accept payment over the phone for your convenience.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-[#C0392B] mb-3">Cancellation Policy</h4>
+                                <p class="text-[#2C2C2C]">We require a 48-hour cancellation notice for all scheduled sessions and board and train programs. Cancellations made within 48 hours may result in charges. Please contact us as soon as possible if you need to reschedule.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-[#C0392B] mb-3">Board & Train Terms</h4>
+                                <p class="text-[#2C2C2C]">All board and train programs require a signed contract. A deposit (typically 50% of the total cost) is required to reserve your dog's spot. No refunds on payments, but credits toward future services may be available.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </details>
             </div>
         </section>
 
-        <!-- Popular Training Programs Heading -->
-        <section id="popular-programs" class="py-12 md:py-16 bg-[#D2B48C]">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-[#0F0F10]">Popular Training Programs</h2>
-                <p class="text-[#0F0F10] text-lg mt-4">Foundation courses for puppies and dogs of all ages</p>
-            </div>
-        </section>
+        <!-- Popular Training Programs -->
+        <section id="popular-programs" class="py-16 md:py-24 bg-[#FAFAF7]">
+            <div class="container mx-auto px-4">
+                <details class="bg-[#D2B48C] rounded-lg shadow border-[#E6E6E6] border group">
+                    <summary class="flex items-center justify-between p-8 cursor-pointer list-none">
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-[#0F0F10]">Popular Training Programs</h2>
+                            <p class="text-[#0F0F10] text-lg mt-2">Foundation courses for puppies and dogs of all ages</p>
+                        </div>
+                        <i class="fas fa-chevron-down text-[#0F0F10] transition-transform duration-300 group-open:rotate-180"></i>
+                    </summary>
+                    <div class="px-8 pb-8 bg-[#D2B48C] rounded-b-lg">
 
         <!-- Puppy Obedience -->
-        <section class="py-16 md:py-24 bg-[#FAFAF7]">
+        <section class="py-16 md:py-24 bg-[#FAFAF7] rounded-lg mb-4">
             <div class="container mx-auto px-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                     <div class="bg-white p-8 rounded-lg shadow border-[#E6E6E6] border order-2 md:order-1">
@@ -94,7 +104,7 @@
         </section>
 
         <!-- Basic Obedience -->
-        <section class="py-16 md:py-24 bg-[#D2B48C]">
+        <section class="py-16 md:py-24 bg-[#D2B48C] rounded-lg mb-4">
             <div class="container mx-auto px-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-16">
                     <div>
@@ -134,7 +144,7 @@
         </section>
 
         <!-- Board and Train (Non E-Collar) -->
-        <section id="board-train-non-ecollar" class="py-16 md:py-24 bg-[#FAFAF7]">
+        <section id="board-train-non-ecollar" class="py-16 md:py-24 bg-[#FAFAF7] rounded-lg mb-8">
             <div class="container mx-auto px-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                     <div class="bg-white p-8 rounded-lg shadow border-[#E6E6E6] border order-2 md:order-1">
@@ -177,16 +187,26 @@
             </div>
         </section>
 
-        <!-- Advanced & Specialized Training Heading -->
-        <section id="specialized" class="py-12 md:py-16 bg-[#D2B48C]">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-[#0F0F10]">Advanced & Specialized Training</h2>
-                <p class="text-[#0F0F10] text-lg mt-4">Intensive programs for behavior modification, e-collar work, and tracking</p>
+                    </div>
+                </details>
             </div>
         </section>
 
+        <!-- Advanced & Specialized Training -->
+        <section id="specialized" class="py-16 md:py-24 bg-[#FAFAF7]">
+            <div class="container mx-auto px-4">
+                <details class="bg-[#D2B48C] rounded-lg shadow border-[#E6E6E6] border group">
+                    <summary class="flex items-center justify-between p-8 cursor-pointer list-none">
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-[#0F0F10]">Advanced & Specialized Training</h2>
+                            <p class="text-[#0F0F10] text-lg mt-2">Intensive programs for behavior modification, e-collar work, and tracking</p>
+                        </div>
+                        <i class="fas fa-chevron-down text-[#0F0F10] transition-transform duration-300 group-open:rotate-180"></i>
+                    </summary>
+                    <div class="px-8 pb-8 bg-[#D2B48C] rounded-b-lg">
+
         <!-- Behavior Modification -->
-        <section class="py-16 md:py-24 bg-[#FAFAF7]">
+        <section class="py-16 md:py-24 bg-[#FAFAF7] rounded-lg mb-4">
             <div class="container mx-auto px-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                     <div class="bg-white p-8 rounded-lg shadow border-[#E6E6E6] border order-2 md:order-1">
@@ -227,7 +247,7 @@
         </section>
 
         <!-- Ecollar Class -->
-        <section class="py-16 md:py-24 bg-[#D2B48C]">
+        <section class="py-16 md:py-24 bg-[#D2B48C] rounded-lg mb-4">
             <div class="container mx-auto px-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-16">
                     <div>
@@ -267,7 +287,7 @@
         </section>
 
         <!-- Board and Train (E-Collar) -->
-        <section id="board-train-ecollar" class="py-16 md:py-24 bg-[#FAFAF7]">
+        <section id="board-train-ecollar" class="py-16 md:py-24 bg-[#FAFAF7] rounded-lg mb-4">
             <div class="container mx-auto px-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                     <div class="bg-white p-8 rounded-lg shadow border-[#E6E6E6] border order-2 md:order-1">
@@ -311,7 +331,7 @@
         </section>
 
         <!-- Man Tracking -->
-        <section class="py-16 md:py-24 bg-[#D2B48C]">
+        <section class="py-16 md:py-24 bg-[#D2B48C] rounded-lg mb-4">
             <div class="container mx-auto px-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-16">
                     <div>
@@ -355,7 +375,7 @@
         </section>
 
         <!-- Blood Tracking -->
-        <section class="py-16 md:py-24 bg-[#FAFAF7]">
+        <section class="py-16 md:py-24 bg-[#FAFAF7] rounded-lg mb-8">
             <div class="container mx-auto px-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                     <div class="bg-white p-8 rounded-lg shadow border-[#E6E6E6] border order-2 md:order-1">
@@ -398,6 +418,11 @@
             </div>
         </section>
 
+                    </div>
+                </details>
+            </div>
+        </section>
+
         <!-- Training Philosophy Cards -->
         <section class="py-16 md:py-24 bg-[#D2B48C] ">
             <div class="container mx-auto px-4">
@@ -432,6 +457,22 @@
     <script>
         // Load components immediately (DOM is ready at this point)
         loadComponents();
+
+        // Auto-open the collapsible matching the URL hash
+        function openSectionFromHash() {
+            const hash = window.location.hash;
+            if (!hash) return;
+            const section = document.querySelector(hash);
+            if (!section) return;
+            const details = section.querySelector('details');
+            if (details) {
+                details.open = true;
+                setTimeout(() => section.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', openSectionFromHash);
+        window.addEventListener('hashchange', openSectionFromHash);
     </script>
 </body>
 </html>
