@@ -68,31 +68,61 @@ function initContactForm() {
     }
 }
 
-// Force autoplay on iOS Safari which may block it despite muted+playsinline
+// Force autoplay on all devices — handles iOS Safari, Android Chrome, Data Saver, Low Power Mode
 function initHeroVideo() {
     const video = document.getElementById('hero-video');
     if (!video) return;
 
+    // Programmatically enforce attributes (some mobile browsers ignore HTML attributes)
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
+    video.loop = true;
+    video.controls = false;
+    video.removeAttribute('controls');
+
+    // Attempt to play
     function tryPlay() {
         var playPromise = video.play();
         if (playPromise !== undefined) {
-            playPromise.catch(function() {
-                // Autoplay blocked — retry on first user interaction
-                document.addEventListener('touchstart', function handler() {
-                    video.play();
-                    document.removeEventListener('touchstart', handler);
-                }, { once: true });
-            });
+            playPromise.catch(function() {});
         }
     }
 
-    // Ensure muted attribute is set programmatically (iOS sometimes ignores the HTML attribute)
-    video.muted = true;
-    video.setAttribute('playsinline', '');
+    // If something pauses the video unexpectedly (e.g. iOS visibility change), restart it
+    video.addEventListener('pause', function() {
+        // Only force-resume if the document is visible (don't fight the OS on background tabs)
+        if (!document.hidden) {
+            video.play().catch(function() {});
+        }
+    });
 
-    // Try playing immediately and also after metadata loads
+    // Resume playback when the tab becomes visible again
+    document.addEventListener('visibilitychange', function() {
+        if (!document.hidden && video.paused) {
+            video.play().catch(function() {});
+        }
+    });
+
+    // Resume playback when the video scrolls back into view (iOS pauses off-screen autoplay videos)
+    if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting && video.paused) {
+                    video.play().catch(function() {});
+                }
+            });
+        }, { threshold: 0.1 });
+        observer.observe(video);
+    }
+
+    // Try playing immediately, after metadata loads, and after the window fully loads
     tryPlay();
     video.addEventListener('loadedmetadata', tryPlay, { once: true });
+    video.addEventListener('canplay', tryPlay, { once: true });
+    window.addEventListener('load', tryPlay, { once: true });
 }
 
 // Initialize all interactive features after components load
