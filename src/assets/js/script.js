@@ -77,11 +77,9 @@ function initImageCarousels() {
 
         const root = host.querySelector('[data-carousel-root]');
         const slidesContainer = host.querySelector('[data-carousel-slides]');
-        const prevBtn = host.querySelector('[data-carousel-prev]');
-        const nextBtn = host.querySelector('[data-carousel-next]');
         const dotsContainer = host.querySelector('[data-carousel-dots]');
 
-        if (!root || !slidesContainer || !prevBtn || !nextBtn || !dotsContainer) return;
+        if (!root || !slidesContainer || !dotsContainer) return;
 
         const images = (host.getAttribute('data-carousel-images') || '')
             .split(',')
@@ -175,16 +173,6 @@ function initImageCarousels() {
             startAutoplay();
         }
 
-        prevBtn.addEventListener('click', () => {
-            prevSlide();
-            restartAutoplay();
-        });
-
-        nextBtn.addEventListener('click', () => {
-            nextSlide();
-            restartAutoplay();
-        });
-
         root.addEventListener('mouseenter', () => clearInterval(autoplayTimer));
         root.addEventListener('mouseleave', startAutoplay);
 
@@ -214,8 +202,6 @@ function initImageCarousels() {
         }, { passive: true });
 
         if (slides.length <= 1) {
-            prevBtn.classList.add('hidden');
-            nextBtn.classList.add('hidden');
             dotsContainer.classList.add('hidden');
         } else {
             renderDots();
