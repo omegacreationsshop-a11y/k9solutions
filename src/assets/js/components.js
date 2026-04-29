@@ -48,6 +48,19 @@ async function loadComponents() {
             initializeReviewCarousel();
         }
 
+        // Load generic component slots, e.g. image carousel
+        const componentSlots = document.querySelectorAll('[data-component]');
+        for (const slot of componentSlots) {
+            const componentName = slot.getAttribute('data-component');
+            if (!componentName || slot.dataset.componentLoaded === 'true') continue;
+
+            const componentResponse = await fetch(`components/${componentName}.html`);
+            if (!componentResponse.ok) continue;
+
+            slot.innerHTML = await componentResponse.text();
+            slot.dataset.componentLoaded = 'true';
+        }
+
         // Initialize page features after components are loaded
         if (typeof initializePageFeatures === 'function') {
             initializePageFeatures();

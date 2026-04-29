@@ -1,6 +1,23 @@
 const fs = require('fs');
 const path = require('path');
 
+function copyRecursiveSync(src, dest) {
+  const stats = fs.statSync(src);
+
+  if (stats.isDirectory()) {
+    if (!fs.existsSync(dest)) {
+      fs.mkdirSync(dest, { recursive: true });
+    }
+
+    fs.readdirSync(src).forEach(entry => {
+      copyRecursiveSync(path.join(src, entry), path.join(dest, entry));
+    });
+    return;
+  }
+
+  fs.copyFileSync(src, dest);
+}
+
 // Create dist directories if they don't exist
 const dirsToCreate = [
   'dist',
@@ -46,8 +63,8 @@ if (fs.existsSync(imagesDir)) {
   fs.readdirSync(imagesDir).forEach(file => {
     const src = path.join(imagesDir, file);
     const dest = path.join('dist', 'assets', 'images', file);
-    fs.copyFileSync(src, dest);
-    console.log(`Copied image: ${file}`);
+    copyRecursiveSync(src, dest);
+    console.log(`Copied image asset: ${file}`);
   });
 }
 
@@ -57,8 +74,8 @@ if (fs.existsSync(videosDir)) {
   fs.readdirSync(videosDir).forEach(file => {
     const src = path.join(videosDir, file);
     const dest = path.join('dist', 'assets', 'videos', file);
-    fs.copyFileSync(src, dest);
-    console.log(`Copied video: ${file}`);
+    copyRecursiveSync(src, dest);
+    console.log(`Copied video asset: ${file}`);
   });
 }
 

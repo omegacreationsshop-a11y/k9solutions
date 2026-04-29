@@ -68,6 +68,165 @@ function initContactForm() {
     }
 }
 
+function initImageCarousels() {
+    const hosts = document.querySelectorAll('[data-component="image-carousel"]');
+    if (!hosts.length) return;
+
+    hosts.forEach((host) => {
+        if (host.dataset.carouselInitialized === 'true') return;
+
+        const root = host.querySelector('[data-carousel-root]');
+        const slidesContainer = host.querySelector('[data-carousel-slides]');
+        const prevBtn = host.querySelector('[data-carousel-prev]');
+        const nextBtn = host.querySelector('[data-carousel-next]');
+        const dotsContainer = host.querySelector('[data-carousel-dots]');
+
+        if (!root || !slidesContainer || !prevBtn || !nextBtn || !dotsContainer) return;
+
+        const images = (host.getAttribute('data-carousel-images') || '')
+            .split(',')
+            .map((path) => path.trim())
+            .filter(Boolean);
+
+        if (!images.length) {
+            host.dataset.carouselInitialized = 'true';
+            return;
+        }
+
+        const interval = parseInt(host.getAttribute('data-carousel-interval') || '4000', 10);
+        const autoplayDelay = Number.isNaN(interval) ? 4000 : interval;
+        const altPrefix = host.getAttribute('data-carousel-alt-prefix') || 'Carousel photo';
+        const ariaLabel = host.getAttribute('data-carousel-label') || 'Image carousel';
+        const heightClass = host.getAttribute('data-carousel-height') || 'h-64';
+
+        root.setAttribute('aria-label', ariaLabel);
+        root.classList.add(...heightClass.split(' ').filter(Boolean));
+
+        images.forEach((src, index) => {
+            const slide = document.createElement('img');
+            slide.src = src;
+            slide.alt = altPrefix + ' ' + (index + 1);
+            slide.loading = 'eager';
+            slide.decoding = 'async';
+            slide.fetchPriority = index === 0 ? 'high' : 'low';
+            slide.className = 'absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ' + (index === 0 ? 'opacity-100' : 'opacity-0');
+            slidesContainer.appendChild(slide);
+        });
+
+        const slides = Array.from(slidesContainer.querySelectorAll('img'));
+        if (!slides.length) {
+            host.dataset.carouselInitialized = 'true';
+            return;
+        }
+
+        let currentIndex = 0;
+        let autoplayTimer;
+        let touchStartX = 0;
+        let touchStartY = 0;
+
+        function renderDots() {
+            dotsContainer.innerHTML = '';
+            slides.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.type = 'button';
+                dot.className = 'w-2.5 h-2.5 rounded-full transition';
+                dot.setAttribute('aria-label', 'Go to slide ' + (index + 1));
+                dot.addEventListener('click', () => {
+                    setSlide(index);
+                    restartAutoplay();
+                });
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        function updateUI() {
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('opacity-100', index === currentIndex);
+                slide.classList.toggle('opacity-0', index !== currentIndex);
+            });
+
+            const dots = dotsContainer.querySelectorAll('button');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('bg-white', index === currentIndex);
+                dot.classList.toggle('bg-white/50', index !== currentIndex);
+            });
+        }
+
+        function setSlide(index) {
+            currentIndex = (index + slides.length) % slides.length;
+            updateUI();
+        }
+
+        function nextSlide() {
+            setSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+            setSlide(currentIndex - 1);
+        }
+
+        function startAutoplay() {
+            if (slides.length <= 1) return;
+            autoplayTimer = setInterval(nextSlide, autoplayDelay);
+        }
+
+        function restartAutoplay() {
+            clearInterval(autoplayTimer);
+            startAutoplay();
+        }
+
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            restartAutoplay();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            restartAutoplay();
+        });
+
+        root.addEventListener('mouseenter', () => clearInterval(autoplayTimer));
+        root.addEventListener('mouseleave', startAutoplay);
+
+        root.addEventListener('touchstart', (event) => {
+            if (!event.touches || !event.touches.length) return;
+            touchStartX = event.touches[0].clientX;
+            touchStartY = event.touches[0].clientY;
+        }, { passive: true });
+
+        root.addEventListener('touchend', (event) => {
+            if (!event.changedTouches || !event.changedTouches.length) return;
+
+            const touchEndX = event.changedTouches[0].clientX;
+            const touchEndY = event.changedTouches[0].clientY;
+            const deltaX = touchEndX - touchStartX;
+            const deltaY = touchEndY - touchStartY;
+
+            if (Math.abs(deltaX) < 40 || Math.abs(deltaX) <= Math.abs(deltaY)) return;
+
+            if (deltaX < 0) {
+                nextSlide();
+            } else {
+                prevSlide();
+            }
+
+            restartAutoplay();
+        }, { passive: true });
+
+        if (slides.length <= 1) {
+            prevBtn.classList.add('hidden');
+            nextBtn.classList.add('hidden');
+            dotsContainer.classList.add('hidden');
+        } else {
+            renderDots();
+            startAutoplay();
+        }
+
+        updateUI();
+        host.dataset.carouselInitialized = 'true';
+    });
+}
+
 // Force autoplay on all devices — handles iOS Safari, Android Chrome, Data Saver, Low Power Mode
 function initHeroVideo() {
     const video = document.getElementById('hero-video');
@@ -164,6 +323,7 @@ function initializePageFeatures() {
     initCardAnimations();
     initHeroVideo();
     initFAQ();
+    initImageCarousels();
 }
 
 // Add animation on scroll for cards
