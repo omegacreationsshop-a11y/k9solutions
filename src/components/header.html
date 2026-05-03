@@ -9,8 +9,41 @@
         <!-- Desktop Navigation -->
         <div class="hidden md:flex items-center gap-8">
             <a href="index.html" class="text-[#0F0F10] hover:text-[#C0392B] font-medium transition">Home</a>
-            <a href="training.html" class="text-[#0F0F10] hover:text-[#C0392B] font-medium transition">Training</a>
-            <a href="boarding.html" class="text-[#0F0F10] hover:text-[#C0392B] font-medium transition">Boarding</a>
+            
+            <!-- Training Dropdown -->
+            <div class="relative group">
+                <a href="training.html" class="text-[#0F0F10] hover:text-[#C0392B] font-medium transition flex items-center gap-1">
+                    Training
+                    <i class="fas fa-chevron-down text-xs"></i>
+                </a>
+                <div class="absolute left-0 mt-0 w-48 bg-white rounded-lg shadow-lg border border-[#E6E6E6] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <a href="training.html#popular-programs" class="block px-4 py-3 text-[#0F0F10] hover:bg-[#FFF8EE] hover:text-[#C0392B] border-b border-[#E6E6E6] text-sm">Puppy Obedience</a>
+                    <a href="training.html#popular-programs" class="block px-4 py-3 text-[#0F0F10] hover:bg-[#FFF8EE] hover:text-[#C0392B] border-b border-[#E6E6E6] text-sm">Basic Obedience</a>
+                    <a href="training.html#board-train-non-ecollar" class="block px-4 py-3 text-[#0F0F10] hover:bg-[#FFF8EE] hover:text-[#C0392B] border-b border-[#E6E6E6] text-sm">Board & Train (Non E-Collar)</a>
+                    <a href="training.html#specialized" class="block px-4 py-3 text-[#0F0F10] hover:bg-[#FFF8EE] hover:text-[#C0392B] border-b border-[#E6E6E6] text-sm">Behavior Modification</a>
+                    <a href="training.html#specialized" class="block px-4 py-3 text-[#0F0F10] hover:bg-[#FFF8EE] hover:text-[#C0392B] border-b border-[#E6E6E6] text-sm">E-Collar Class</a>
+                    <a href="training.html#board-train-ecollar" class="block px-4 py-3 text-[#0F0F10] hover:bg-[#FFF8EE] hover:text-[#C0392B] border-b border-[#E6E6E6] text-sm">Board & Train (E-Collar)</a>
+                    <a href="training.html#specialized" class="block px-4 py-3 text-[#0F0F10] hover:bg-[#FFF8EE] hover:text-[#C0392B] border-b border-[#E6E6E6] text-sm">Man Tracking</a>
+                    <a href="training.html#specialized" class="block px-4 py-3 text-[#0F0F10] hover:bg-[#FFF8EE] hover:text-[#C0392B] text-sm">Blood Tracking</a>
+                </div>
+            </div>
+
+            <!-- Boarding Dropdown -->
+            <div class="relative group">
+                <a href="boarding.html" class="text-[#0F0F10] hover:text-[#C0392B] font-medium transition flex items-center gap-1">
+                    Boarding
+                    <i class="fas fa-chevron-down text-xs"></i>
+                </a>
+                <div class="absolute left-0 mt-0 w-48 bg-white rounded-lg shadow-lg border border-[#E6E6E6] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <a href="boarding.html#check-in-out" class="block px-4 py-3 text-[#0F0F10] hover:bg-[#FFF8EE] hover:text-[#C0392B] border-b border-[#E6E6E6] text-sm">Check In/Out Times</a>
+                    <a href="boarding.html#vaccinations" class="block px-4 py-3 text-[#0F0F10] hover:bg-[#FFF8EE] hover:text-[#C0392B] border-b border-[#E6E6E6] text-sm">Vaccinations</a>
+                    <a href="boarding.html#medications" class="block px-4 py-3 text-[#0F0F10] hover:bg-[#FFF8EE] hover:text-[#C0392B] border-b border-[#E6E6E6] text-sm">Medications</a>
+                    <a href="boarding.html#food-requirements" class="block px-4 py-3 text-[#0F0F10] hover:bg-[#FFF8EE] hover:text-[#C0392B] border-b border-[#E6E6E6] text-sm">Food Requirements</a>
+                    <a href="boarding.html#pricing" class="block px-4 py-3 text-[#0F0F10] hover:bg-[#FFF8EE] hover:text-[#C0392B] border-b border-[#E6E6E6] text-sm">Pricing</a>
+                    <a href="boarding.html#accommodations" class="block px-4 py-3 text-[#0F0F10] hover:bg-[#FFF8EE] hover:text-[#C0392B] text-sm">Accommodations</a>
+                </div>
+            </div>
+
             <a href="about.html" class="text-[#0F0F10] hover:text-[#C0392B] font-medium transition">About</a>
             <a href="contact.html" class="text-[#0F0F10] hover:text-[#C0392B] font-medium transition">Contact</a>
         </div>
@@ -25,8 +58,41 @@
     <div id="mobileMenu" class="hidden md:hidden bg-[#FAFAF7] border-t border-[#E6E6E6]">
         <div class="container mx-auto px-4 py-4 flex flex-col gap-4">
             <a href="index.html" class="text-[#0F0F10] hover:text-[#C0392B] font-medium transition">Home</a>
-            <a href="training.html" class="text-[#0F0F10] hover:text-[#C0392B] font-medium transition">Training</a>
-            <a href="boarding.html" class="text-[#0F0F10] hover:text-[#C0392B] font-medium transition">Boarding</a>
+            
+            <!-- Mobile Training Dropdown -->
+            <div class="border-b border-[#E6E6E6] pb-4">
+                <button id="mobileTrainingToggle" class="w-full flex items-center justify-between text-[#0F0F10] hover:text-[#C0392B] font-medium transition">
+                    Training
+                    <i class="fas fa-chevron-down text-xs transition-transform"></i>
+                </button>
+                <div id="mobileTrainingMenu" class="hidden mt-2 pl-4 flex flex-col gap-2 border-l-2 border-[#C0392B]">
+                    <a href="training.html#popular-programs" class="text-[#0F0F10] hover:text-[#C0392B] text-sm transition">Puppy Obedience</a>
+                    <a href="training.html#popular-programs" class="text-[#0F0F10] hover:text-[#C0392B] text-sm transition">Basic Obedience</a>
+                    <a href="training.html#board-train-non-ecollar" class="text-[#0F0F10] hover:text-[#C0392B] text-sm transition">Board & Train (Non E-Collar)</a>
+                    <a href="training.html#specialized" class="text-[#0F0F10] hover:text-[#C0392B] text-sm transition">Behavior Modification</a>
+                    <a href="training.html#specialized" class="text-[#0F0F10] hover:text-[#C0392B] text-sm transition">E-Collar Class</a>
+                    <a href="training.html#board-train-ecollar" class="text-[#0F0F10] hover:text-[#C0392B] text-sm transition">Board & Train (E-Collar)</a>
+                    <a href="training.html#specialized" class="text-[#0F0F10] hover:text-[#C0392B] text-sm transition">Man Tracking</a>
+                    <a href="training.html#specialized" class="text-[#0F0F10] hover:text-[#C0392B] text-sm transition">Blood Tracking</a>
+                </div>
+            </div>
+
+            <!-- Mobile Boarding Dropdown -->
+            <div class="border-b border-[#E6E6E6] pb-4">
+                <button id="mobileBoardingToggle" class="w-full flex items-center justify-between text-[#0F0F10] hover:text-[#C0392B] font-medium transition">
+                    Boarding
+                    <i class="fas fa-chevron-down text-xs transition-transform"></i>
+                </button>
+                <div id="mobileBoardingMenu" class="hidden mt-2 pl-4 flex flex-col gap-2 border-l-2 border-[#C0392B]">
+                    <a href="boarding.html#check-in-out" class="text-[#0F0F10] hover:text-[#C0392B] text-sm transition">Check In/Out Times</a>
+                    <a href="boarding.html#vaccinations" class="text-[#0F0F10] hover:text-[#C0392B] text-sm transition">Vaccinations</a>
+                    <a href="boarding.html#medications" class="text-[#0F0F10] hover:text-[#C0392B] text-sm transition">Medications</a>
+                    <a href="boarding.html#food-requirements" class="text-[#0F0F10] hover:text-[#C0392B] text-sm transition">Food Requirements</a>
+                    <a href="boarding.html#pricing" class="text-[#0F0F10] hover:text-[#C0392B] text-sm transition">Pricing</a>
+                    <a href="boarding.html#accommodations" class="text-[#0F0F10] hover:text-[#C0392B] text-sm transition">Accommodations</a>
+                </div>
+            </div>
+
             <a href="about.html" class="text-[#0F0F10] hover:text-[#C0392B] font-medium transition">About</a>
             <a href="contact.html" class="text-[#0F0F10] hover:text-[#C0392B] font-medium transition">Contact</a>
         </div>

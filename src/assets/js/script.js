@@ -24,6 +24,28 @@ function initMobileMenu() {
             });
         });
     }
+
+    // Mobile Training Dropdown Toggle
+    const mobileTrainingToggle = document.getElementById('mobileTrainingToggle');
+    const mobileTrainingMenu = document.getElementById('mobileTrainingMenu');
+    if (mobileTrainingToggle && mobileTrainingMenu) {
+        mobileTrainingToggle.addEventListener('click', () => {
+            mobileTrainingMenu.classList.toggle('hidden');
+            const icon = mobileTrainingToggle.querySelector('i');
+            icon.classList.toggle('rotate-180');
+        });
+    }
+
+    // Mobile Boarding Dropdown Toggle
+    const mobileBoardingToggle = document.getElementById('mobileBoardingToggle');
+    const mobileBoardingMenu = document.getElementById('mobileBoardingMenu');
+    if (mobileBoardingToggle && mobileBoardingMenu) {
+        mobileBoardingToggle.addEventListener('click', () => {
+            mobileBoardingMenu.classList.toggle('hidden');
+            const icon = mobileBoardingToggle.querySelector('i');
+            icon.classList.toggle('rotate-180');
+        });
+    }
 }
 
 function initSmoothScroll() {
