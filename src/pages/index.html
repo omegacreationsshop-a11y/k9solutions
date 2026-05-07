@@ -21,6 +21,12 @@
                 Your browser does not support the video tag.
             </video>
             <div class="absolute inset-0 bg-black opacity-50" style="z-index: 1;"></div>
+            <!-- Tap-to-play button: shown only when autoplay is blocked (e.g. iOS Low Power Mode) -->
+            <button id="hero-play-btn" class="absolute inset-0 items-center justify-center hidden" style="z-index: 3; background: transparent; border: none; cursor: pointer;" aria-label="Play video">
+                <div class="bg-white rounded-full flex items-center justify-center" style="width: 80px; height: 80px; opacity: 0.85;">
+                    <i class="fas fa-play text-3xl text-[#C0392B]" style="margin-left: 6px;"></i>
+                </div>
+            </button>
             <div class="container mx-auto px-4 text-center relative w-full" style="z-index: 2;">
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">Welcome to K9 Solutions</h1>
                 <p class="text-lg md:text-2xl mb-8 md:mb-12 opacity-90">Professional Dog Training & Pet Boarding Services</p>

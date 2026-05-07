@@ -250,19 +250,56 @@ function initHeroVideo() {
     video.controls = false;
     video.removeAttribute('controls');
 
-    // Attempt to play
-    function tryPlay() {
-        var playPromise = video.play();
-        if (playPromise !== undefined) {
-            playPromise.catch(function() {});
+    var playBtn = document.getElementById('hero-play-btn');
+
+    function showPlayButton() {
+        if (playBtn) {
+            playBtn.classList.remove('hidden');
+            playBtn.classList.add('flex');
         }
     }
 
+    function hidePlayButton() {
+        if (playBtn) {
+            playBtn.classList.add('hidden');
+            playBtn.classList.remove('flex');
+        }
+    }
+
+    // Attempt to play; show tap-to-play button if autoplay is blocked (e.g. Low Power Mode)
+    function tryPlay() {
+        var playPromise = video.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(function() {
+                showPlayButton();
+            });
+        }
+    }
+
+    // Tap-to-play: user gesture bypasses Low Power Mode autoplay restriction
+    if (playBtn) {
+        playBtn.addEventListener('click', function() {
+            video.muted = true;
+            video.play().then(function() {
+                hidePlayButton();
+            }).catch(function() {
+                // Video still can't play — keep button visible
+            });
+        });
+    }
+
+    // Hide play button once video is actually running
+    video.addEventListener('playing', hidePlayButton);
+
     // If something pauses the video unexpectedly (e.g. iOS visibility change), restart it
+    // This also prevents users from pausing once playing
     video.addEventListener('pause', function() {
         // Only force-resume if the document is visible (don't fight the OS on background tabs)
         if (!document.hidden) {
-            video.play().catch(function() {});
+            video.play().catch(function() {
+                // If force-resume fails (e.g. Low Power Mode re-engaged), show play button again
+                showPlayButton();
+            });
         }
     });
 
